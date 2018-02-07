@@ -1,0 +1,30 @@
+.download-status {
+    background: rgb(255, 255, 255);
+    padding: 2px 10px;
+    color: #0c0c0c;
+    position: relative;
+}
+
+.download-status p {
+    font-size: 10px;
+}
+
+.download-status .progress {
+    height: 2px;
+    background: #4CAF50;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.curr-down-rate {
+    position: absolute;
+    font-size: 8px;
+    margin-top: 14px;
+    margin-left: 2px;
+}
+
+.status-right {
+    float: right;
+    margin-top: -16px !important;
+}

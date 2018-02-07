@@ -1,0 +1,43 @@
+{
+  "name": "Saavn Song Downloader",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "This Extension Downloads Songs from Browser Adds Download Button",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "permissions": [
+    "https://www.saavn.com/*",
+    "https://aa.cf.saavncdn.com/*",
+    "https://c.saavncdn.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.saavn.com/*"
+      ],
+      "css": [
+        "src/inject/inject.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.saavn.com/*"
+      ],
+      "js": [
+        "js/jquery/jquery.min.js",
+        "js/jszip.js",
+        "js/filesaver.js",
+        "js/id3.js",
+        "downloader.js",
+        "src/inject/inject.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    "downloader.js"
+  ]
+}

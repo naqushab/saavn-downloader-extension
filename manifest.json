@@ -28,7 +28,7 @@
         "https://www.saavn.com/*"
       ],
       "js": [
-        "js/jquery.min.js",
+        "js/jquery/jquery.min.js",
         "js/jszip.js",
         "js/filesaver.js",
         "js/id3.js",

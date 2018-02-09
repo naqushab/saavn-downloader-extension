@@ -53,8 +53,10 @@ var addDownloadButtonToAllSongs = function () {
 	$('.song-json').each(function() {
 		var $this = $(this);
 		var btn = $('<a class="single-download-button btn x-small"></a>');
-
-		var song = JSON.parse($this.text());
+		try{
+			var song = JSON.parse($this.text());
+		}
+		catch(e){}
 
 
 		btn.text('Download').css({
@@ -212,10 +214,15 @@ $(document).ready(function () {
 
 		if(len !== OldLen) {
 			initPlugin();
+			console.log("Re-init content");
 		}
-
+		console.log("Don't Re-init content");
 		OldLen = len;
 	}, 500);
 
 });
 
+$(document).on("click", ".load-more", function(){
+	initPlugin();
+	console.log("Load more content fired");
+});

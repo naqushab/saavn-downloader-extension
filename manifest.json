@@ -2,7 +2,7 @@
   "name": "Saavn Song Downloader",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "This Extension Downloads Songs from Browser Adds Download Button",
+  "description": "Adds download button next to songs and over albums/playlist etc on Saavn.com",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",

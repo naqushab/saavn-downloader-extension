@@ -1,6 +1,6 @@
 # Saavn Song Downloader Chrome Extension
 
-![Snapshot](https://imgur.com/hSlcsxV)
+![Snapshot](https://i.imgur.com/hSlcsxV.png)
 
 This Extension will allow you to download any song, album or playlist in saavn seamlessly and easily.
 

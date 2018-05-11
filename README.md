@@ -1,6 +1,6 @@
 # Saavn Song Downloader Chrome Extension
 
-![Snapshot](https://image.ibb.co/hGUe45/Unnamed_QQ_Screenshot20170819225454.png)
+![Snapshot](https://imgur.com/hSlcsxV)
 
 This Extension will allow you to download any song, album or playlist in saavn seamlessly and easily.
 
@@ -22,7 +22,7 @@ This Extension will allow you to download any song, album or playlist in saavn s
 
 this extension is currently not hosted in chrome webstore, so you will have to install it manually on chrome. below are the steps
 
-- download the extension here : [download](https://bitbucket.org/shakee93/saavn-downloader-extension/get/61c666bbc197.zip)
+- download the extension here : [download](https://github.com/naqushab/saavn-downloader-extension/archive/master.zip)
 - extract the zip file
 - go to chrome extensions page [chrome://extensions/](chrome://extensions/)
 - you will see a button called "Load Unpacked Extension.." click that
@@ -32,7 +32,7 @@ Note : the extension will be enabled on development mode. you will have a popup 
 
 ## Issues
 
-if you have any issues regarding this extension you may submit a issue in here [issue link](https://bitbucket.org/shakee93/saavn-downloader-extension/issues/new) 
+if you have any issues regarding this extension you may submit a issue in here [issue link](https://github.com/naqushab/saavn-downloader-extension/issues/new) 
 
 ## Behind the Scenes
 

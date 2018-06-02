@@ -1,8 +1,13 @@
 # Saavn Song Downloader Chrome Extension
 
-![Snapshot](https://i.imgur.com/hSlcsxV.png)
+![Song Quality Selector](https://i.imgur.com/UP8IyU2.png)
+![Downloads](https://i.imgur.com/9l0QUJg.png)
+![Single Song Download](https://i.imgur.com/PC5LPRJ.png)
+![Bulk Song Download](https://i.imgur.com/pHaMw05.png)
 
-This Extension will allow you to download any song, album or playlist in saavn seamlessly and easily.
+This Extension will allow you to download any song, album or playlist in saavn seamlessly and easily. 
+
+Hritwik Singhal also uploaded this extension on Firefox. [Here is the link](https://addons.mozilla.org/en-US/firefox/addon/saavn-song-downloader/).
 
 ## Features
 

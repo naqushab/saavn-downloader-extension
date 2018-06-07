@@ -139,7 +139,8 @@ var getSongBlob = function (song, songFileUrl, callback, hideInEnd, hideStatus) 
 		songStatus.hide();
 	}
 	songStatus.status('Downloading Album Artwork');
-	getURLArrayBuffer(song.image_url, function (coverArrayBuffer) {
+	// Fetching High-Res Image 
+	getURLArrayBuffer(song.image_url.replace("150x150", "500x500"), function (coverArrayBuffer) {
 
 		songStatus.status('Downloading Song : ' + song.title);
 

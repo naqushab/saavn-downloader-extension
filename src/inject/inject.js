@@ -214,9 +214,7 @@ $(document).ready(function () {
 
 		if(len !== OldLen) {
 			initPlugin();
-			console.log("Re-init content");
 		}
-		console.log("Don't Re-init content");
 		OldLen = len;
 	}, 500);
 

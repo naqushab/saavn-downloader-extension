@@ -1,6 +1,6 @@
 {
   "name": "Saavn Song Downloader",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "manifest_version": 2,
   "description": "Adds download button next to songs and over albums/playlist etc on Saavn.com",
   "icons": {

@@ -55,7 +55,7 @@ var getDownloadURL = function (song, bit, callback) {
 
 	$.ajax({
 		type: "POST",
-		url: "https://www.saavn.com/api.php",
+		url: "https://www.jiosaavn.com/api.php",
 		crossDomain: true,
 		dataType: "json",
 		data: postData,

@@ -1,6 +1,6 @@
 {
   "name": "Saavn Song Downloader",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "manifest_version": 2,
   "description": "Adds download button next to songs and over albums/playlist etc on Saavn.com",
   "icons": {
@@ -10,14 +10,14 @@
   },
   "default_locale": "en",
   "permissions": [
-    "https://www.saavn.com/*",
+    "https://www.jiosaavn.com/*",
     "https://aa.cf.saavncdn.com/*",
     "https://c.saavncdn.com/*"
   ],
   "content_scripts": [
     {
       "matches": [
-        "https://www.saavn.com/*"
+        "https://www.jiosaavn.com/*"
       ],
       "css": [
         "src/inject/inject.css"
@@ -25,7 +25,7 @@
     },
     {
       "matches": [
-        "https://www.saavn.com/*"
+        "https://www.jiosaavn.com/*"
       ],
       "js": [
         "js/jquery.min.js",

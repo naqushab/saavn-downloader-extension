@@ -1,8 +1,8 @@
 {
-  "name": "Saavn Song Downloader",
+  "name": "Jiosaavn Song Downloader",
   "version": "0.0.4",
   "manifest_version": 2,
-  "description": "Adds download button next to songs and over albums/playlist etc on Saavn.com",
+  "description": "Adds download button next to songs and over albums/playlist etc on jiosaavn.com",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",

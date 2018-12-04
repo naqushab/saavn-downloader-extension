@@ -1,11 +1,11 @@
-# Saavn Song Downloader Chrome Extension
+# Jiosaavn Song Downloader Chrome Extension
 
 ![Song Quality Selector](https://i.imgur.com/UP8IyU2.png)
 ![Downloads](https://i.imgur.com/9l0QUJg.png)
 ![Single Song Download](https://i.imgur.com/PC5LPRJ.png)
 ![Bulk Song Download](https://i.imgur.com/pHaMw05.png)
 
-This Extension will allow you to download any song, album or playlist in saavn seamlessly and easily. 
+This Extension will allow you to download any song, album or playlist in jiosaavn seamlessly and easily. 
 
 Hritwik Singhal also uploaded this extension on Firefox. [Here is the link](https://addons.mozilla.org/en-US/firefox/addon/saavn-song-downloader/).
 
@@ -43,7 +43,7 @@ if you have any issues regarding this extension you may submit a issue in here [
 
 ### overview
 
-Sorry to write this. but the saavn has a very poor security it is just exposed to everyone.. they haven't even mingled there code where in point a hacker or someone cannot read the code. the code they have minified is readable and easily exploitable because of it.
+Sorry to write this. but the jiosaavn has a very poor security it is just exposed to everyone.. they haven't even mingled there code where in point a hacker or someone cannot read the code. the code they have minified is readable and easily exploitable because of it.
 
 if you have javascript knowledge you can easily understand whats going behind. on the web application they will generate a single response url for a song playback which will be played via the player on the web. the song url will expire in approx 10s which means you cannot download it most of the time as the url expires. it will give an Forbidden error most of the time when you try to download.
 

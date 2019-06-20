@@ -7,7 +7,9 @@
 
 This Extension will allow you to download any song, album or playlist in jiosaavn seamlessly and easily. 
 
-Hritwik Singhal also uploaded this extension on Firefox. [Here is the link](https://addons.mozilla.org/en-US/firefox/addon/saavn-song-downloader/).
+### NOTE
+Some songs are not available in a higher quality and there is no way to see it through extension. Please select the next best quality (320kbps to 128 kbps for example) and the songs would download just fine.
+Albums/Playlists that are old will also have this issue as some of the songs are not available in the selected download quality.
 
 ## Features
 

@@ -25,7 +25,7 @@ var playerDownloadButton = function () {
 
 		getDownloadURL(song, false, function (result, status) {
 
-			if(status === 'success') {
+			if (status === 'success') {
 				var el = $('<a download></a>');
 				el.attr('href', result.auth_url).attr('target', '_blank').attr('download', slugify(song.title));
 				el[0].click();
@@ -33,7 +33,7 @@ var playerDownloadButton = function () {
 				btn.text('Download');
 			}
 
-			if(status === 'error') {
+			if (status === 'error') {
 				btn.text('Error in Download');
 				console.log('Download error', result);
 			}
@@ -50,13 +50,13 @@ var addDownloadButtonToAllSongs = function () {
 
 	$('.single-download-button').remove();
 
-	$('.song-json').each(function() {
+	$('.song-json').each(function () {
 		var $this = $(this);
 		var btn = $('<a class="single-download-button btn x-small"></a>');
-		try{
+		try {
 			var song = JSON.parse($this.text());
 		}
-		catch(e){}
+		catch (e) { }
 
 
 		btn.text('Download').css({
@@ -74,12 +74,12 @@ var addDownloadButtonToAllSongs = function () {
 			getDownloadURL(song, false, function (result, status) {
 
 
-				if(status === 'success') {
+				if (status === 'success') {
 					downloadWithData(song, result.auth_url, function () {
 						$btn.text('Download');
 					});
 				}
-				if(status === 'error') {
+				if (status === 'error') {
 					$btn.text('Error in Download');
 
 				}
@@ -146,7 +146,7 @@ var createDownloadQuality = function () {
 	var dropDown = $('<div class="drop"></div>');
 	var dropDownList = $('<ol></ol>');
 
-	var bitrates = ['320', '192', '128', '64','32','16'];
+	var bitrates = ['320', '192', '128', '64', '32', '16'];
 
 	menuItem.find('.curr-down-rate').first().text(localStorage.download_bitrate + " kbps");
 	bitrates = bitrates.map(function (rate) {
@@ -154,7 +154,7 @@ var createDownloadQuality = function () {
 
 		var el = $('<li><a>' + rate + ' kbps</a></li>');
 
-		if(rate === localStorage.download_bitrate) {
+		if (rate === localStorage.download_bitrate) {
 			el.addClass('current');
 			el.find('a').first().append('<em class="current">current</em>');
 		}
@@ -179,9 +179,9 @@ var createDownloadQuality = function () {
 	menuItem.hover(function () {
 		menuItem.addClass('active');
 	},
-	function () {
-		menuItem.removeClass('active');
-	});
+		function () {
+			menuItem.removeClass('active');
+		});
 
 	dropDownList.append(bitrates);
 	dropDown.append(dropDownList);
@@ -210,17 +210,22 @@ $(document).ready(function () {
 	// check if classes of the .page-wrap changes then add the buttons again
 	var OldLen = 0;
 	var inter = setInterval(function () {
-		var len = $('.page-wrap')[0].classList.length;
+		if ($('.page-wrap').length) {
+			if ($('.page-wrap')[0].length) {
+				var len = $('.page-wrap')[0].classList.length;
 
-		if(len !== OldLen) {
-			initPlugin();
+				if (len !== OldLen) {
+					console.log("Song List is changed. Initilizing plugin again.")
+					initPlugin();
+				}
+				OldLen = len;
+			}
 		}
-		OldLen = len;
-	}, 500);
+	}, 1000);
 
 });
 
-$(document).on("click", ".load-more", function(){
+$(document).on("click", ".load-more", function () {
 	initPlugin();
 	console.log("Load more content fired");
 });

@@ -20,13 +20,13 @@ var slugify = function (text) {
  * @returns {*}
  */
 var bytesToSize = function (a, b) {
-	if (0 === a)return "0 Bytes";
+	if (0 === a) return "0 Bytes";
 	var c = 1024, d = b || 2, e = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"],
 		f = Math.floor(Math.log(a) / Math.log(c));
 	return parseFloat((a / Math.pow(c, f)).toFixed(d)) + " " + e[f]
 }
 
-if(!localStorage.download_bitrate) {
+if (!localStorage.download_bitrate) {
 	localStorage.download_bitrate = '320';
 }
 
@@ -92,7 +92,7 @@ var getURLArrayBuffer = function (url, onload, statusObject) {
 	xhr.onload = function () {
 		if (xhr.status === 200) {
 
-			if(statusObject) {
+			if (statusObject) {
 				statusObject.flush();
 			}
 
@@ -135,7 +135,7 @@ var getSongBlob = function (song, songFileUrl, callback, hideInEnd, hideStatus) 
 
 	var songStatus = downloadStatus.createRow();
 
-	if(hideStatus) {
+	if (hideStatus) {
 		songStatus.hide();
 	}
 	songStatus.status('Downloading Album Artwork');
@@ -143,7 +143,7 @@ var getSongBlob = function (song, songFileUrl, callback, hideInEnd, hideStatus) 
 	var songCoverUrl = song.image_url;
 	var highDefSongCoverUrl = songCoverUrl.replace("150x150", "500x500");
 	getURLArrayBuffer(highDefSongCoverUrl, function (coverArrayBuffer) {
-		
+
 		songStatus.status('Downloading Song : ' + song.title);
 
 		getURLArrayBuffer(songFileUrl, function (arrayBuffer) {
@@ -242,7 +242,7 @@ var downloadStatus = function () {
 			downStatusWrapper = $('<div class="download-status-wrapper"></div>');
 			$('#player').prepend(downStatusWrapper);
 		},
-		createRow : function () {
+		createRow: function () {
 			downStatus = $('<div class="download-status"> <span class="progress"></span><p class="status-text"></p><p class="status-right"></p></div>');
 			downStatus.hide();
 			downStatusWrapper.append(downStatus);
@@ -270,10 +270,10 @@ var downloadStatus = function () {
 			this.hide();
 			this.progress(0);
 		},
-		flush : function () {
+		flush: function () {
 			downStatus.remove();
 		},
-		flushAll : function () {
+		flushAll: function () {
 			$('.download-status').remove();
 		},
 		status: function (message, hide) {
@@ -312,7 +312,7 @@ var downloadStatus = function () {
  * @param callback
  */
 var downloadZip = function (zip, name, callback) {
-	zip.generateAsync({type: "blob"})
+	zip.generateAsync({ type: "blob" })
 		.then(function (blob) {
 			saveAs(blob, name);
 			callback();
@@ -333,7 +333,7 @@ var singleShowSingleSongProgress = function (xhr, statusObject) {
 
 		var percentComplete = e.loaded / e.total;
 
-		if(statusObject) {
+		if (statusObject) {
 			statusObject.statusRight(bytesToSize(e.loaded, 2) + "/" + bytesToSize(e.total, 2));
 			statusObject.progress(percentComplete * 100);
 		}

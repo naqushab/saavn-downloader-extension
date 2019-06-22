@@ -201,7 +201,13 @@ var initPlugin = function () {
 	downloadStatus.create();
 };
 
+var hideAds = function () {
+	$('.ad').remove();
+};
+
 $(document).ready(function () {
+
+	hideAds();
 
 	setTimeout(function () {
 		initPlugin();

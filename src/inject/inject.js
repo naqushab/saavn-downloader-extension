@@ -202,8 +202,10 @@ var initPlugin = function () {
 };
 
 $(document).ready(function () {
-	initPlugin();
 
+	setTimeout(function () {
+		initPlugin();
+	}, 2000);
 
 	createDownloadQuality();
 

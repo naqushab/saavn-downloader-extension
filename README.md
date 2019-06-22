@@ -1,11 +1,11 @@
-# Jiosaavn Song Downloader Chrome Extension
+# Jiosaavn Song Downloader Chrome Extension + Saavn Ads Hider
 
 ![Song Quality Selector](https://i.imgur.com/UP8IyU2.png)
 ![Downloads](https://i.imgur.com/9l0QUJg.png)
 ![Single Song Download](https://i.imgur.com/PC5LPRJ.png)
 ![Bulk Song Download](https://i.imgur.com/pHaMw05.png)
 
-This Extension will allow you to download any song, album or playlist in jiosaavn seamlessly and easily. 
+This Extension will allow you to download any song, album or playlist in jiosaavn seamlessly and easily. It also hides ads from Saavn Web.
 
 ### NOTE
 Some songs are not available in a higher quality and there is no way to see it through extension. Please select the next best quality (320kbps to 128 kbps for example) and the songs would download just fine.
@@ -17,6 +17,7 @@ Albums/Playlists that are old will also have this issue as some of the songs are
 - Download a Single Song
 - Download an Album
 - Download a Playlist
+- Saavn Ad Block
 
 ## How to use it
 
@@ -73,3 +74,4 @@ Album, Playlist
 - Will download all Songs asynchronously as mentioned above.
 - We will make a virtual zip on memory and create a folder and add the songs there.
 - Download the Zip
+- Somewhat Buggy

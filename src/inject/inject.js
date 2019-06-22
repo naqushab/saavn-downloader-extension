@@ -211,8 +211,8 @@ $(document).ready(function () {
 	var OldLen = 0;
 	var inter = setInterval(function () {
 		if ($('.page-wrap').length) {
-			if ($('.page-wrap')[0].length) {
-				var len = $('.page-wrap')[0].classList.length;
+			if ($('.song-wrap').length) {
+				var len = $('.song-wrap').length;
 
 				if (len !== OldLen) {
 					console.log("Song List is changed. Initilizing plugin again.")
@@ -223,9 +223,4 @@ $(document).ready(function () {
 		}
 	}, 1000);
 
-});
-
-$(document).on("click", ".load-more", function () {
-	initPlugin();
-	console.log("Load more content fired");
 });

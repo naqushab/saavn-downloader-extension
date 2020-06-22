@@ -17,13 +17,6 @@
     left: 0;
 }
 
-.curr-down-rate {
-    position: absolute;
-    font-size: 8px;
-    margin-top: 14px;
-    margin-left: 2px;
-}
-
 .status-right {
     float: right;
     margin-top: -16px !important;

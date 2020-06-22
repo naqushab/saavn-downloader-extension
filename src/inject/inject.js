@@ -142,9 +142,9 @@ var addPlaylistDownloadButton = function () {
  */
 var createDownloadQuality = function () {
 	var self = this;
-	var menuItem = $('<div id="language"><span class="curr-down-rate"></span><strong>Download Quality</strong></div>').addClass('menu text right');
-	var dropDown = $('<div class="drop"></div>');
-	var dropDownList = $('<ol></ol>');
+	var menuItem = $('<aside class="c-dropdown u-margin-right@sm"><div class="c-dropdown__header"><span class="c-dropdown__type"><span class="u-visible-visually@lg">Song </span>Quality</span><span class="c-dropdown__select curr-down-rate"></span></div></aside>');
+	var dropDown = $('<div class="c-dropdown__content"><div class="u-padding@sm"><h5 class="u-deci u-margin-bottom-none@sm">What bitrate of song you want to download?</h5></div><div class="o-message o-message--error">You must select a bitrate</div></div>');
+	var dropDownList = $('<form><section class="u-scroll u-3/5-max-vh"><ul class="o-list-select"></ul></section></form>');
 
 	var bitrates = ['320', '192', '128', '64', '32', '16'];
 
@@ -152,22 +152,20 @@ var createDownloadQuality = function () {
 	bitrates = bitrates.map(function (rate) {
 
 
-		var el = $('<li><a>' + rate + ' kbps</a></li>');
+		var el = $('<li class="o-list-select__item" ><a>' + rate + ' kbps</a></li>');
 
 		if (rate === localStorage.download_bitrate) {
-			el.addClass('current');
-			el.find('a').first().append('<em class="current">current</em>');
+			el.addClass('selected');
 		}
 
 		el.on('click', function () {
 			localStorage.download_bitrate = rate;
-			$(this).parent().find('.current').each(function () {
-				$(this).removeClass('current');
+			$(this).parent().find('.selected').each(function () {
+				$(this).removeClass('selected');
 				$(this).find('a em').remove();
 			});
 
-			$(this).addClass('current');
-			$(this).find('a').first().append('<em class="current">current</em>');
+			$(this).addClass('selected');
 
 			menuItem.removeClass('active');
 			menuItem.find('.curr-down-rate').first().text(localStorage.download_bitrate + ' kbps');
@@ -187,7 +185,7 @@ var createDownloadQuality = function () {
 	dropDown.append(dropDownList);
 	menuItem.append(dropDown);
 
-	$("#header").find('.wrap').first().append(menuItem);
+	$("#language-dropdown").parent().append(menuItem);
 };
 
 /**
@@ -203,13 +201,17 @@ var initPlugin = function () {
 
 var hideAds = function () {
 	$('.ad').remove();
+	$('.c-ad').remove();
+	$('.c-banner').remove();
 };
 
 $(document).ready(function () {
 
 	hideAds();
+	console.log("Ads Hidden Now");
 
 	setTimeout(function () {
+		console.log("Initialize the plugin");
 		initPlugin();
 	}, 2000);
 

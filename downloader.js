@@ -33,26 +33,20 @@ var getDownloadURL = function(song, bit, callback) {
     }
 
     var postData = {
-        url: song.url,
-        __call: "song.generateAuthToken",
-        _marker: "false",
-        _format: "json",
-        bitrate: bit
+        "query": song
     };
 
     $.ajax({
-        type: "POST",
-        url: "https://www.jiosaavn.com/api.php",
+        type: "GET",
+        url: "https://jiosaavn-api.herokuapp.com/result/",
         crossDomain: true,
         dataType: "json",
         data: postData,
-        xhrFields: {
-            withCredentials: true
-        },
-        success: function(result, status) {
+        success: function(result) {
+            console.log(result);
             callback(result, 'success');
         },
-        error: function(result, status) {
+        error: function(result) {
             console.log(result);
             callback(result, 'error');
         }
@@ -78,21 +72,17 @@ var getURLArrayBuffer = function(url, onload, statusObject) {
 
     xhr.onload = function() {
         if (xhr.status === 200) {
-
             if (statusObject) {
                 statusObject.flush();
             }
-
             onload(xhr.response);
         } else {
             console.error(xhr.statusText + ' (' + xhr.status + ')');
         }
     };
-
     xhr.onerror = function() {
         console.error('Network error');
     };
-
     xhr.send();
 };
 
@@ -102,9 +92,9 @@ var getURLArrayBuffer = function(url, onload, statusObject) {
  * @param songFileUrl
  * @param callback
  */
-var downloadWithData = function(song, songFileUrl, callback) {
-    getSongBlob(song, songFileUrl, function(blob) {
-        saveAs(blob, song.title + bitrateString + '.mp3');
+var downloadWithData = function(songData, callback) {
+    getSongBlob(songData, function(blob) {
+        saveAs(blob, songData.song + bitrateString + '.mp3');
         callback();
     }, true);
 
@@ -118,43 +108,39 @@ var downloadWithData = function(song, songFileUrl, callback) {
  * @param hideInEnd
  * @param hideStatus
  */
-var getSongBlob = function(song, songFileUrl, callback, hideInEnd, hideStatus) {
+var getSongBlob = function(song, callback, hideInEnd, hideStatus) {
 
     var songStatus = downloadStatus.createRow();
-
     if (hideStatus) {
         songStatus.hide();
     }
     songStatus.status('Downloading Album Artwork');
-    // Fetching High-Res Image 
-    var songCoverUrl = song.image_url;
-    var highDefSongCoverUrl = songCoverUrl.replace("150x150", "500x500");
-    getURLArrayBuffer(highDefSongCoverUrl, function(coverArrayBuffer) {
+    var songCoverUrl = song.image;
+    songCoverUrl = songCoverUrl.replace('c.saavncdn.com', 'snoidcdnems06.cdnsrv.jio.com/c.saavncdn.com')
+    console.log("Cover art : " + songCoverUrl);
+    getURLArrayBuffer(songCoverUrl, function(coverArrayBuffer) {
 
-        songStatus.status('Downloading Song : ' + song.title);
-
-        getURLArrayBuffer(songFileUrl, function(arrayBuffer) {
+        songStatus.status('Downloading Song : ' + song.song);
+        getURLArrayBuffer(song.media_url, function(arrayBuffer) {
 
             const writer = new ID3Writer(arrayBuffer);
-            writer.setFrame('TIT2', song.title)
-                .setFrame('TPE1', song.singers.split(', '))
-                .setFrame('TCOM', [song.music])
+            writer.setFrame('TIT2', song.song)
+                .setFrame('TPE1', song.primary_artists.split(', '))
+                .setFrame('TCOM', [song.singers]) //note this for later
                 .setFrame('TALB', song.album)
                 .setFrame('TYER', song.year)
                 .setFrame('TPUB', song.label)
                 .setFrame('TCON', ['Soundtrack'])
-                .setFrame('TBPM', 128)
+                .setFrame('TBPM', 320)
                 .setFrame('APIC', {
                     type: 3,
                     data: coverArrayBuffer,
-                    description: song.title
+                    description: song.song
                 });
 
             writer.addTag();
-
             const blob = writer.getBlob();
-
-            songStatus.status('Downloaded : ' + song.title, hideInEnd);
+            songStatus.status('Downloaded : ' + song.song, hideInEnd);
             callback(blob);
 
         }, songStatus)

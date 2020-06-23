@@ -10,7 +10,7 @@ var addDownloadButtonToAllSongs = function() {
         var $this = $(this);
         var btn = $('<div class="o-snippet__item single-download-button"><span class="u-link"><i class="o-icon--large u-pop-in o-icon-download"></i></span></div>');
         try {
-            var songLink = this.href;
+            var song = this.href;
             console.log('Song link: ' + this);
         } catch (e) {}
 
@@ -20,7 +20,7 @@ var addDownloadButtonToAllSongs = function() {
             
             getDownloadURL(song, false, function(result, status) {
                 if (status === 'success') {
-                    downloadWithData(songLink, result.auth_url, function() {
+                    downloadWithData(result, function() {
                         $btn.addClass('o-icon-download-fill u-color-js-blue');
                     });
                 }

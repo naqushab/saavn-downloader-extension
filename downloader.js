@@ -26,11 +26,7 @@ var bitrateString = " [" + localStorage.download_bitrate + " kbps]";
  * @param bit
  * @param callback
  */
-var getDownloadURL = function(song, bit, callback) {
-
-    if (!bit) {
-        bit = localStorage.download_bitrate;
-    }
+var getDownloadURL = function(song, callback) {
 
     var postData = {
         "query": song
@@ -93,7 +89,7 @@ var getURLArrayBuffer = function(url, onload, statusObject) {
  * @param callback
  */
 var downloadWithData = function(songData, callback) {
-    getSongBlob(songData, function(blob) {
+    getSongBlob(songData, false, function(blob) {
         saveAs(blob, songData.song + bitrateString + '.mp3');
         callback();
     }, true);
@@ -108,7 +104,10 @@ var downloadWithData = function(songData, callback) {
  * @param hideInEnd
  * @param hideStatus
  */
-var getSongBlob = function(song, callback, hideInEnd, hideStatus) {
+var getSongBlob = function(song, bit, callback, hideInEnd, hideStatus) {
+    if (!bit) {
+        bit = localStorage.download_bitrate;
+    }
 
     var songStatus = downloadStatus.createRow();
     if (hideStatus) {
@@ -116,13 +115,18 @@ var getSongBlob = function(song, callback, hideInEnd, hideStatus) {
     }
     songStatus.status('Downloading Album Artwork');
     var songCoverUrl = song.image;
-    songCoverUrl = songCoverUrl.replace('c.saavncdn.com', 'snoidcdnems06.cdnsrv.jio.com/c.saavncdn.com')
+    songCoverUrl = songCoverUrl.replace('c.saavncdn.com', 'snoidcdnems06.cdnsrv.jio.com/c.saavncdn.com');
     console.log("Cover art : " + songCoverUrl);
     getURLArrayBuffer(songCoverUrl, function(coverArrayBuffer) {
 
         songStatus.status('Downloading Song : ' + song.song);
-        getURLArrayBuffer(song.media_url, function(arrayBuffer) {
+        var songUrl = song.media_url;
 
+        var lastUnderscoreIndex = songUrl.lastIndexOf('_');
+        songUrl = songUrl.substr(0, lastUnderscoreIndex) + '_' + bit + '.mp3';
+
+        getURLArrayBuffer(songUrl, function(arrayBuffer) {
+            console.log('MP3 URL : ' + songUrl);
             const writer = new ID3Writer(arrayBuffer);
             writer.setFrame('TIT2', song.song)
                 .setFrame('TPE1', song.primary_artists.split(', '))
@@ -167,10 +171,10 @@ var downloadSetOfSongsAsZip = function(songs, name) {
 
     songs.forEach(function(song, index) {
         // get the download url of song
-        getDownloadURL(song, false, function(result, status) {
+        getDownloadURL(song, function(result, status) {
             if (status === 'success') {
                 // get a single song blob
-                getSongBlob(song, result.auth_url, function(blob) {
+                getSongBlob(song, false, result.auth_url, function(blob) {
                     album.file(song.title + '.mp3', blob);
                     // check if all files are downloaded
                     if (index + 1 === songs.length) {

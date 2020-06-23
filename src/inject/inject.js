@@ -4,21 +4,20 @@
 var addDownloadButtonToAllSongs = function() {
 
     $('.single-download-button').remove();
-    var songsEle = $('figcaption').find('a.u-color-js-gray');
+    var songsEle = $('li').find('figcaption').find('a.u-color-js-gray');
 
     songsEle.each(function() {
         var $this = $(this);
         var btn = $('<div class="o-snippet__item single-download-button"><span class="u-link"><i class="o-icon--large u-pop-in o-icon-download"></i></span></div>');
         try {
             var song = this.href;
-            console.log('Song link: ' + this);
         } catch (e) {}
 
         btn.on('click', function(e) {
             e.preventDefault();
             var $btn = $(this);
             
-            getDownloadURL(song, false, function(result, status) {
+            getDownloadURL(song, function(result, status) {
                 if (status === 'success') {
                     downloadWithData(result, function() {
                         $btn.addClass('o-icon-download-fill u-color-js-blue');

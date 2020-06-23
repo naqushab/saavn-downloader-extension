@@ -9,7 +9,7 @@ This Extension will allow you to download any song, album or playlist in jiosaav
 
 ## NOTE
 This extension requires JioSaavn API in the backend to fetch Download Links in real time.
-This is why it needs CORS enaled. *Download this extension* ![CORS Origin Chrome Extension](https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc) and Enable it so that this extension can work.
+This is why it needs CORS enaled. *Download this extension* [CORS Origin Chrome Extension](https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc) and Enable it so that this extension can work.
 
 ## Features
 
@@ -35,7 +35,7 @@ this extension is currently not hosted in chrome webstore, so you will have to i
 - go to chrome extensions page [chrome://extensions/](chrome://extensions/)
 - you will see a button called "Load Unpacked Extension.." click that
 - select the extracted folder and press "ok"
-- Download this extension* ![CORS Origin Chrome Extension](https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc) and Enable it so that this extension can work
+- Download this extension [*CORS Origin Chrome Extension*](https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc) and Enable it so that this extension can work
 
 Note : the extension will be enabled on development mode. you will have a popup when opening the chrome. press cancel on that popup. you can always enable it again on the chrome extension page.
 

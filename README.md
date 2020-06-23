@@ -1,11 +1,9 @@
 # Jiosaavn Song Downloader Chrome Extension + Saavn Ads Hider
 
-![Song Quality Selector](https://i.imgur.com/UP8IyU2.png)
-![Downloads](https://i.imgur.com/9l0QUJg.png)
-![Single Song Download](https://i.imgur.com/PC5LPRJ.png)
-![Bulk Song Download](https://i.imgur.com/pHaMw05.png)
+![Song Quality Selector](https://i.imgur.com/wa5OK4O.png)
+![Single Song Download](https://i.imgur.com/9TqNSSL.png)
 
-This Extension will allow you to download any song, album or playlist in jiosaavn seamlessly and easily. It also hides ads from Saavn Web.
+This Extension will allow you to download any song in jiosaavn seamlessly and easily. It also hides ads from Saavn Web.
 
 ## NOTE
 This extension requires JioSaavn API in the backend to fetch Download Links in real time.
@@ -15,8 +13,8 @@ This is why it needs CORS enaled. *Download this extension* [CORS Origin Chrome 
 
 - Select Any Quality Downloads (Supports HQ 320kbps)
 - Download a Single Song
-- Download an Album
-- Download a Playlist
+- Download an Album (in progress)
+- Download a Playlist (in progress)
 - Saavn Ad Block
 
 ## How to use it
@@ -28,7 +26,7 @@ This is why it needs CORS enaled. *Download this extension* [CORS Origin Chrome 
 
 ## How to Install it
 
-this extension is currently not hosted in chrome webstore, so you will have to install it manually on chrome. below are the steps
+This extension can not hosted be in chrome webstore (duh!), so you will have to install it manually on chrome. below are the steps:
 
 - download the extension here : [download](https://github.com/naqushab/saavn-downloader-extension/archive/master.zip)
 - extract the zip file
@@ -41,27 +39,17 @@ Note : the extension will be enabled on development mode. you will have a popup 
 
 ## Issues
 
-if you have any issues regarding this extension you may submit a issue in here [issue link](https://github.com/naqushab/saavn-downloader-extension/issues/new) 
+- Album and Playlist downloads are currently not working
+
+Please have a look at other issues before submitting a new one. If you have any issues regarding this extension whih you think is unique, you may submit a issue in here [issue link](https://github.com/naqushab/saavn-downloader-extension/issues/new) 
 
 ## Behind the Scenes
 
-### overview
+### Overview
+ There is a [JioSaavn API](https://github.com/cyberboysumanjay/JioSaavnAPI) developed by [cyberboysumanjay](https://github.com/cyberboysumanjay) and I am running that in a free Heroku server (which is why it is so slow) and fetching Songs Data via that API using an AJAX call and then downloading it in Browser and adding perfect metadat in it.
 
-Sorry to write this. but the jiosaavn has a very poor security it is just exposed to everyone.. they haven't even mingled there code where in point a hacker or someone cannot read the code. the code they have minified is readable and easily exploitable because of it.
+ Make sure you check out JioSaavn API page and :star: it if you like. People donot earn anything from this and spend their precious time developing it and release it for free. I am personally a huge fan of structural appraoch and like the repo a lot. A samll praise, a good mention makes them feel a lot good and it doesn't cost anything. 
 
-if you have javascript knowledge you can easily understand whats going behind. on the web application they will generate a single response url for a song playback which will be played via the player on the web. the song url will expire in approx 10s which means you cannot download it most of the time as the url expires. it will give an Forbidden error most of the time when you try to download.
-
-### Flaws
-
-the web is typically exploitable we all know that. atleast this would have been much harder for someone to crack if it has been improved
-
--The Didn't Mingle the code. anyone can read the code and understand it.
-
--The Api of the application is exposed to the global anyone can access it from the chrome developer tools. for instance the 'Player' object :D you can play songs Programmatically. are you kidding ?
-
--Each song object details directly printed on the dom '.song-json' :D any hacker can easily deserialize  the json object and use the data.
-
-if they fix those the extension will be stopped from working :D sorry guys
 
 ### How it works
 
@@ -71,7 +59,7 @@ Song
 - Then we will download the album art asynchronously.
 - Then we will add ID3 tags (Title, Singer, Cover, Composer and stuff) to the downloaded song.
 
-Album, Playlist
+Album, Playlist (not yet working. In progress)
 - Will download all Songs asynchronously as mentioned above.
 - We will make a virtual zip on memory and create a folder and add the songs there.
 - Download the Zip

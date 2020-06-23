@@ -54,23 +54,15 @@ var getDownloadURL = function(song, callback) {
  *
  * @param url
  * @param onload
- * @param statusObject
  */
-var getURLArrayBuffer = function(url, onload, statusObject) {
+var getURLArrayBuffer = function(url, onload) {
 
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.responseType = 'arraybuffer';
 
-    if (statusObject) {
-        singleShowSingleSongProgress(xhr, statusObject);
-    }
-
     xhr.onload = function() {
         if (xhr.status === 200) {
-            if (statusObject) {
-                statusObject.flush();
-            }
             onload(xhr.response);
         } else {
             console.error(xhr.statusText + ' (' + xhr.status + ')');
@@ -92,7 +84,7 @@ var downloadWithData = function(songData, callback) {
     getSongBlob(songData, false, function(blob) {
         saveAs(blob, songData.song + bitrateString + '.mp3');
         callback();
-    }, true);
+    });
 
 };
 
@@ -101,25 +93,17 @@ var downloadWithData = function(songData, callback) {
  * @param song
  * @param songFileUrl
  * @param callback
- * @param hideInEnd
- * @param hideStatus
  */
-var getSongBlob = function(song, bit, callback, hideInEnd, hideStatus) {
+var getSongBlob = function(song, bit, callback) {
     if (!bit) {
         bit = localStorage.download_bitrate;
     }
 
-    var songStatus = downloadStatus.createRow();
-    if (hideStatus) {
-        songStatus.hide();
-    }
-    songStatus.status('Downloading Album Artwork');
     var songCoverUrl = song.image;
     songCoverUrl = songCoverUrl.replace('c.saavncdn.com', 'snoidcdnems06.cdnsrv.jio.com/c.saavncdn.com');
     console.log("Cover art : " + songCoverUrl);
     getURLArrayBuffer(songCoverUrl, function(coverArrayBuffer) {
 
-        songStatus.status('Downloading Song : ' + song.song);
         var songUrl = song.media_url;
 
         var lastUnderscoreIndex = songUrl.lastIndexOf('_');
@@ -144,10 +128,9 @@ var getSongBlob = function(song, bit, callback, hideInEnd, hideStatus) {
 
             writer.addTag();
             const blob = writer.getBlob();
-            songStatus.status('Downloaded : ' + song.song, hideInEnd);
             callback(blob);
 
-        }, songStatus)
+        })
 
     });
 };

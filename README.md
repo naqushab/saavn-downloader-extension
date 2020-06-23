@@ -7,9 +7,9 @@
 
 This Extension will allow you to download any song, album or playlist in jiosaavn seamlessly and easily. It also hides ads from Saavn Web.
 
-### NOTE
-Some songs are not available in a higher quality and there is no way to see it through extension. Please select the next best quality (320kbps to 128 kbps for example) and the songs would download just fine.
-Albums/Playlists that are old will also have this issue as some of the songs are not available in the selected download quality.
+## NOTE
+This extension requires JioSaavn API in the backend to fetch Download Links in real time.
+This is why it needs CORS enaled. *Download this extension* ![CORS Origin Chrome Extension](https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc) and Enable it so that this extension can work.
 
 ## Features
 
@@ -23,8 +23,8 @@ Albums/Playlists that are old will also have this issue as some of the songs are
 
 - You will have a Download Selector on Top Menu. where you can select your download Quality
 - To Download a Single Song. You will see a "Download" button near the song title
-- To Download an Album You will see a "Download" button near the album title
-- To Download an Playlist You will see a "Download" button near the playlist name
+- To Download an Album You will see a "Download" button near the album title (not working right now)
+- To Download an Playlist You will see a "Download" button near the playlist name (not working right now)
 
 ## How to Install it
 
@@ -35,6 +35,7 @@ this extension is currently not hosted in chrome webstore, so you will have to i
 - go to chrome extensions page [chrome://extensions/](chrome://extensions/)
 - you will see a button called "Load Unpacked Extension.." click that
 - select the extracted folder and press "ok"
+- Download this extension* ![CORS Origin Chrome Extension](https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc) and Enable it so that this extension can work
 
 Note : the extension will be enabled on development mode. you will have a popup when opening the chrome. press cancel on that popup. you can always enable it again on the chrome extension page.
 

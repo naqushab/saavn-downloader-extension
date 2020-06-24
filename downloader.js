@@ -107,7 +107,12 @@ var getSongBlob = function(song, bit, callback) {
         var songUrl = song.media_url;
 
         var lastUnderscoreIndex = songUrl.lastIndexOf('_');
-        songUrl = songUrl.substr(0, lastUnderscoreIndex) + '_' + bit + '.mp3';
+        if (bit == '128'){
+            songUrl = songUrl.substr(0, lastUnderscoreIndex) + '.mp3';
+        }
+        else {
+            songUrl = songUrl.substr(0, lastUnderscoreIndex) + '_' + bit + '.mp3';
+        }
 
         getURLArrayBuffer(songUrl, function(arrayBuffer) {
             console.log('MP3 URL : ' + songUrl);

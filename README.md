@@ -66,5 +66,5 @@ Album, Playlist **(not yet working. In progress)**
 - Download the Zip
 - Somewhat Buggy
 
-Made with :love: in India.  
+Made with :heart: in India.  
 Huge shoutout to people reporting the issues and giving me pointers to look on how to fix issues. :love:

@@ -67,4 +67,4 @@ Album, Playlist **(not yet working. In progress)**
 - Somewhat Buggy
 
 Made with :heart: in India.  
-Huge shoutout to people reporting the issues and giving me pointers to look on how to fix issues. :love:
+Huge shoutout to people reporting the issues and giving me pointers to look on how to fix issues. :heart:

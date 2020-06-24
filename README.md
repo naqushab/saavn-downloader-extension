@@ -3,18 +3,19 @@
 ![Song Quality Selector](https://i.imgur.com/wa5OK4O.png)
 ![Single Song Download](https://i.imgur.com/9TqNSSL.png)
 
-This Extension will allow you to download any song in jiosaavn seamlessly and easily. It also hides ads from Saavn Web.
+This Extension will allow you to download any song in jiosaavn seamlessly and easily. It also hides ads from Saavn Web.  
+:star: if you love the extension. 
 
 ## NOTE
 This extension requires JioSaavn API in the backend to fetch Download Links in real time.
-This is why it needs CORS enaled. *Download this extension* [CORS Origin Chrome Extension](https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc) and Enable it so that this extension can work.
+This is why it needs CORS enaled. **Download this extension** [CORS Origin Chrome Extension](https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc) and Enable it so that this extension can work.
 
 ## Features
 
 - Select Any Quality Downloads (Supports HQ 320kbps)
 - Download a Single Song
-- Download an Album (in progress)
-- Download a Playlist (in progress)
+- Download an Album **(in progress)**
+- Download a Playlist **(in progress)**
 - Saavn Ad Block
 
 ## How to use it
@@ -59,8 +60,11 @@ Song
 - Then we will download the album art asynchronously.
 - Then we will add ID3 tags (Title, Singer, Cover, Composer and stuff) to the downloaded song.
 
-Album, Playlist (not yet working. In progress)
+Album, Playlist **(not yet working. In progress)**
 - Will download all Songs asynchronously as mentioned above.
 - We will make a virtual zip on memory and create a folder and add the songs there.
 - Download the Zip
 - Somewhat Buggy
+
+Made with :love: in India.  
+Huge shoutout to people reporting the issues and giving me pointers to look on how to fix issues. :love:

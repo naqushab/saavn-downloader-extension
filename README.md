@@ -34,7 +34,11 @@ This extension can not hosted be in chrome webstore (duh!), so you will have to 
 - go to chrome extensions page [chrome://extensions/](chrome://extensions/)
 - you will see a button called "Load Unpacked Extension.." click that
 - select the extracted folder and press "ok"
-- Download this extension [*CORS Origin Chrome Extension*](https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc) and Enable it so that this extension can work
+- Download this extension [*CORS Origin Chrome Extension*](https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc) and Enable it so that this extension can work  
+It should look like this:  
+![CORS Enable](https://i.imgur.com/bf53ZAG.png)
+***Note:** Disable the CORS when not using downloding feature.*
+
 
 Note : the extension will be enabled on development mode. you will have a popup when opening the chrome. press cancel on that popup. you can always enable it again on the chrome extension page.
 

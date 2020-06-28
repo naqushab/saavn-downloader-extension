@@ -1,9 +1,9 @@
-# Jiosaavn Song Downloader Chrome Extension + Saavn Ads Hider
+# :musical_note: JioSaavn Song Downloader Chrome Extension + JioSaavn Ads Hider
 
 ![Song Quality Selector](https://i.imgur.com/wa5OK4O.png)
 ![Single Song Download](https://i.imgur.com/9TqNSSL.png)
 
-This Extension will allow you to download any song in jiosaavn seamlessly and easily. It also hides ads from Saavn Web.  
+This Extension will allow you to download any song in JioSaavn seamlessly and easily. It also hides ads from JioSaavn Web.  
 :star: if you love the extension. 
 
 ## NOTE
@@ -16,7 +16,7 @@ This is why it needs CORS enaled. **Download this extension** [CORS Origin Chrom
 - Download a Single Song
 - Download an Album **(in progress)**
 - Download a Playlist **(in progress)**
-- Saavn Ad Block
+- JioSaavn Ad Block
 
 ## How to use it
 
@@ -46,12 +46,13 @@ Note : the extension will be enabled on development mode. you will have a popup 
 
 - Album and Playlist downloads are currently not working
 
-Please have a look at other issues before submitting a new one. If you have any issues regarding this extension whih you think is unique, you may submit a issue in here [issue link](https://github.com/naqushab/saavn-downloader-extension/issues/new) 
+Please have a look at other issues before submitting a new one. If you have any issues regarding this extension whih you think is unique, you may submit a issue in here [issue link](https://github.com/naqushab/saavn-downloader-extension/issues/new)   
+Please provide all the issue details in the template that is given for a quicker resolution.
 
 ## Behind the Scenes
 
 ### Overview
- There is a [JioSaavn API](https://github.com/cyberboysumanjay/JioSaavnAPI) developed by [cyberboysumanjay](https://github.com/cyberboysumanjay) and I am running that in a free Heroku server (which is why it is so slow) and fetching Songs Data via that API using an AJAX call and then downloading it in Browser and adding perfect metadat in it.
+ There is a [JioSaavn API](https://github.com/cyberboysumanjay/JioSaavnAPI) developed by [cyberboysumanjay](https://github.com/cyberboysumanjay) and I am running that in a free Heroku server (which is why it is so slow) and fetching Songs Data via that API using an AJAX call and then downloading it in Browser and adding perfect metadata in it.
 
  Make sure you check out JioSaavn API page and :star: it if you like. People donot earn anything from this and spend their precious time developing it and release it for free. I am personally a huge fan of structural appraoch and like the repo a lot. A samll praise, a good mention makes them feel a lot good and it doesn't cost anything. 
 

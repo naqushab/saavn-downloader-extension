@@ -1,10 +1,14 @@
 # :musical_note: JioSaavn Song Downloader Chrome Extension + JioSaavn Ads Hider
 
+:star: if you love the extension. [![GitHub stars](https://img.shields.io/github/stars/naqushab/saavn-downloader-extension.svg?style=social&label=Star)](https://github.com/naqushab/saavn-downloader-extension) 
+
+Follow me if you want to be updated. :smile: ![GitHub followers](https://img.shields.io/github/followers/naqushab.svg?style=social&label=Follow)
+
 ![Song Quality Selector](https://i.imgur.com/wa5OK4O.png)
 ![Single Song Download](https://i.imgur.com/9TqNSSL.png)
 
 This Extension will allow you to download any song in JioSaavn seamlessly and easily. It also hides ads from JioSaavn Web.  
-:star: if you love the extension. 
+
 
 ## NOTE
 This extension requires JioSaavn API in the backend to fetch Download Links in real time.

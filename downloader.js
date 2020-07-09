@@ -66,6 +66,7 @@ var getURLArrayBuffer = function(url, onload) {
             onload(xhr.response);
         } else {
             console.error(xhr.statusText + ' (' + xhr.status + ')');
+            alert("Download error! \n This is because song may not available in selected bitrate!")
         }
     };
     xhr.onerror = function() {

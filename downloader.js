@@ -34,7 +34,7 @@ var getDownloadURL = function(song, callback) {
 
     $.ajax({
         type: "GET",
-        url: "https://jiosaavn-api.herokuapp.com/result/",
+        url: "https://songapi.thetuhin.com/link/", //using https://github.com/cachecleanerjeet/JiosaavnAPI
         crossDomain: true,
         dataType: "json",
         data: postData,
@@ -100,17 +100,24 @@ var getSongBlob = function(song, bit, callback) {
     }
 
     var songCoverUrl = song.image;
-    songCoverUrl = songCoverUrl.replace('c.saavncdn.com', 'snoidcdnems06.cdnsrv.jio.com/c.saavncdn.com');
+    // just proxied with cf workers & added access-control-allow-origin header
+    // code available in proxy directory
+    songCoverUrl = songCoverUrl.replace('c.saavncdn.com', 'corsdisabledimage.tuhinwin.workers.dev');
     console.log("Cover art : " + songCoverUrl);
     getURLArrayBuffer(songCoverUrl, function(coverArrayBuffer) {
 
-        var songUrl = song.media_url;
+        var songUrlraw = song.media_url;
+        // just proxied with cf workers & added access-control-allow-origin header
+        // code available in proxy directory
+        var songUrl = songUrlraw.replace('aac.saavncdn.com', 'corsdisabledsong.tuhinwin.workers.dev');
 
         var lastUnderscoreIndex = songUrl.lastIndexOf('_');
-        if (bit == '128'){
+        if (bit == '128') {
             songUrl = songUrl.substr(0, lastUnderscoreIndex) + '.mp3';
-        }
-        else {
+        } else if (bit == '192') {
+            //because 192 is not avail now (192 = 128)
+            songUrl = songUrl.substr(0, lastUnderscoreIndex) + '.mp3';
+        } else {
             songUrl = songUrl.substr(0, lastUnderscoreIndex) + '_' + bit + '.mp3';
         }
 

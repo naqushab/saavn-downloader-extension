@@ -12,7 +12,6 @@ This Extension will allow you to download any song in JioSaavn seamlessly and ea
 
 ## NOTE
 This extension requires JioSaavn API in the backend to fetch Download Links in real time.
-This is why it needs CORS enaled. **Download this extension** [CORS Origin Chrome Extension](https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc) and Enable it so that this extension can work.
 
 ## Features
 
@@ -38,11 +37,6 @@ This extension can not hosted be in chrome webstore (duh!), so you will have to 
 - go to chrome extensions page [chrome://extensions/](chrome://extensions/)
 - you will see a button called "Load Unpacked Extension.." click that
 - select the extracted folder and press "ok"
-- Download this extension [*CORS Origin Chrome Extension*](https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc) and Enable it so that this extension can work  
-It should look like this:  
-![CORS Enable](https://i.imgur.com/bf53ZAG.png)
-***Note:** Disable the CORS when not using downloding feature.*
-
 
 Note : the extension will be enabled on development mode. you will have a popup when opening the chrome. press cancel on that popup. you can always enable it again on the chrome extension page.
 
@@ -56,9 +50,9 @@ Please provide all the issue details in the template that is given for a quicker
 ## Behind the Scenes
 
 ### Overview
- There is a [JioSaavn API](https://github.com/cyberboysumanjay/JioSaavnAPI) developed by [cyberboysumanjay](https://github.com/cyberboysumanjay) and I am running that in a free Heroku server (which is why it is so slow) and fetching Songs Data via that API using an AJAX call and then downloading it in Browser and adding perfect metadata in it.
+ There is a [JioSaavn API](https://github.com/cachecleanerjeet/JiosaavnAPI) developed by [cachecleanerjeet](https://github.com/cachecleanerjeet) and fetching Songs Data via that API and then downloading it in Browser and adding perfect metadata in it.
 
- Make sure you check out JioSaavn API page and :star: it if you like. People donot earn anything from this and spend their precious time developing it and release it for free. I am personally a huge fan of structural appraoch and like the repo a lot. A samll praise, a good mention makes them feel a lot good and it doesn't cost anything. 
+ Make sure you check out JioSaavn API page and :star: it if you like. People donot earn anything from this and spend their precious time developing it and release it for free. I am personally a huge fan of structural appraoch and like the repo a lot. A small praise, a good mention makes them feel a lot good and it doesn't cost anything. See right sidebar for the list of contributors to the repo.
 
 
 ### How it works
@@ -76,4 +70,5 @@ Album, Playlist **(not yet working. In progress)**
 - Somewhat Buggy
 
 Made with :heart: in India.  
-Huge shoutout to people reporting the issues and giving me pointers to look on how to fix issues. :heart:
+Huge shoutout to people reporting the issues and giving me pointers to look on how to fix issues. :heart:  
+Special shoutout to @cachecleanerjeet for his work on enabling the extension without the CORS extension and making the download a little faster. Great job!

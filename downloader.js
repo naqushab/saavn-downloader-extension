@@ -34,7 +34,7 @@ var getDownloadURL = function(song, callback) {
 
     $.ajax({
         type: "GET",
-        url: "https://songapi.thetuhin.com/link/", //using https://github.com/cachecleanerjeet/JiosaavnAPI
+        url: "https://songapi.thetuhin.com/api/link/", //using https://github.com/cachecleanerjeet/JiosaavnAPI
         crossDomain: true,
         dataType: "json",
         data: postData,

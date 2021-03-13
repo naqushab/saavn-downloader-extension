@@ -1,43 +1,47 @@
 {
-  "name": "Jiosaavn Song Downloader",
-  "version": "0.0.4",
-  "manifest_version": 2,
-  "description": "Adds download button next to songs and over albums/playlist etc on jiosaavn.com",
-  "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
-  },
-  "default_locale": "en",
-  "permissions": [
-    "https://www.jiosaavn.com/*",
-    "https://aa.cf.saavncdn.com/*",
-    "https://c.saavncdn.com/*"
-  ],
-  "content_scripts": [
-    {
-      "matches": [
-        "https://www.jiosaavn.com/*"
-      ],
-      "css": [
-        "src/inject/inject.css"
-      ]
+    "name": "Jiosaavn Song Downloader",
+    "version": "0.0.4",
+    "manifest_version": 2,
+    "description": "Adds download button next to songs and over albums/playlist etc on jiosaavn.com",
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
     },
-    {
-      "matches": [
-        "https://www.jiosaavn.com/*"
-      ],
-      "js": [
-        "js/jquery.min.js",
-        "js/jszip.js",
-        "js/filesaver.js",
-        "js/id3.js",
+    "default_locale": "en",
+    "permissions": [
+        "https://www.jiosaavn.com/*",
+        "https://aa.cf.saavncdn.com/*",
+        "https://c.saavncdn.com/*"
+    ],
+    "content_scripts": [{
+            "matches": [
+                "https://www.jiosaavn.com/*"
+            ],
+            "css": [
+                "src/inject/inject.css"
+            ]
+        },
+        {
+            "matches": [
+                "https://www.jiosaavn.com/*"
+            ],
+            "js": [
+                "js/jquery.min.js",
+                "js/jszip.js",
+                "js/filesaver.js",
+                "js/id3.js",
+                "downloader.js",
+                "src/inject/inject.js",
+                "js/ffmpeg-core.js",
+                "js/ffmpeg.min.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
         "downloader.js",
-        "src/inject/inject.js"
-      ]
-    }
-  ],
-  "web_accessible_resources": [
-    "downloader.js"
-  ]
+        "js/ffmpeg-core.js",
+        "js/ffmpeg-core.wasm",
+        "js/ffmpeg-core.worker.js"
+    ]
 }

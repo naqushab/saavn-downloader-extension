@@ -144,15 +144,20 @@ var initPlugin = function() {
 };
 
 var hideAds = function() {
-    console.log("Ads Hidden Now");
-    $('.ad').remove();
-    $('.c-ad').remove();
-    $('.c-banner').remove();
+    var allAds = document.querySelectorAll('.c-ad__unit')
+    for (var i = 0; i < allAds.length; i++) {
+        allAds[i].remove()
+    }
+    $('div.c-banner').remove()
 };
 
 $(document).ready(function() {
+    document.querySelectorAll("nav.c-nav > ul.c-nav__list > li.c-nav__item")[2].innerHTML = `<a href="https://github.com/naqushab/saavn-downloader-extension" target="_blank" class="c-nav__link">Star this</a>`;
 
     hideAds();
+    setInterval(function() { // Hide ads en every 5 seconds (If appeared)
+        hideAds();
+    }, 5000);
 
     setTimeout(function() {
         initPlugin();

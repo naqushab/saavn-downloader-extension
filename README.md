@@ -52,6 +52,8 @@ Please provide all the issue details in the template that is given for a quicker
 ### Overview
  There is a [JioSaavn API](https://github.com/cachecleanerjeet/JiosaavnAPI) developed by [cachecleanerjeet](https://github.com/cachecleanerjeet) and fetching Songs Data via that API and then downloading it in Browser and adding perfect metadata in it.
 
+ Thanks to [ffmpeg.wasm](https://github.com/ffmpegwasm/ffmpeg.wasm) for ffmpeg in Browser 😋
+
  Make sure you check out JioSaavn API page and :star: it if you like. People donot earn anything from this and spend their precious time developing it and release it for free. I am personally a huge fan of structural appraoch and like the repo a lot. A small praise, a good mention makes them feel a lot good and it doesn't cost anything. See right sidebar for the list of contributors to the repo.
 
 

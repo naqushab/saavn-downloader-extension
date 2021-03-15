@@ -2,37 +2,44 @@
  * Add Download Button To Single Songs on the Screen
  */
 var addDownloadButtonToAllSongs = function() {
-
+    $('div[id=root]').prepend('<div class="toasts" id="toasts"></div>') // Notification Container
     $('.single-download-button').remove();
     var songsEle = $('li').find('figcaption').find('a.u-color-js-gray');
 
     songsEle.each(function() {
         var $this = $(this);
         var btn = $('<div class="o-snippet__item single-download-button"><span class="u-link"><i class="o-icon--large u-pop-in o-icon-download"></i></span></div>');
+
         try {
             var song = this.href;
         } catch (e) {}
 
-        btn.on('click', function(e) {
+        btn.on('click', async function(e) {
             e.preventDefault();
             var $btn = $(this);
-            
+
             $btn.find('span').find('i.o-icon--large').removeClass('o-icon-download');
             $btn.find('span').find('i.o-icon--large').addClass('o-icon-download-progress');
 
-            getDownloadURL(song, function(result, status) {
-                if (status === 'success') {
+            try {
+                var result = await (await fetch(`https://jiosaavn-api.vercel.app/link?query=${song}`)).json();
+                if (result.result === 'false') {
+                    $btn.find('.o-icon--large').removeClass('o-icon-download-progress');
+                    $btn.find('.o-icon--large').addClass('o-icon-close');
+                    notify(`Sorry, That's an error`, 'error');
+                    console.log('Failed to download song' + $this.href)
+                } else {
                     downloadWithData(result, function() {
                         $btn.find('span').find('i.o-icon--large').removeClass('o-icon-download-progress');
                         $btn.find('span').find('i.o-icon--large').addClass('o-icon-download');
                     });
                 }
-                if (status === 'error') {
-                    $btn.find('.o-icon--large').removeClass('o-icon-download-progress');
-                    $btn.find('.o-icon--large').addClass('o-icon-close');
-                    console.log('Failed to download song' + $this.href)
-                }
-            });
+            } catch (err) {
+                $btn.find('.o-icon--large').removeClass('o-icon-download-progress');
+                $btn.find('.o-icon--large').addClass('o-icon-close');
+                notify(`Sorry, That's an error`, 'error');
+                console.log('Failed to download song')
+            }
         });
 
         $this.parent().parent().parent().parent().parent().last().append(btn);
@@ -41,6 +48,9 @@ var addDownloadButtonToAllSongs = function() {
 
 /**
  * Add Album Download Button on Albums
+ */
+/*
+ * TO DO - Bind the button in the body and pass the Album ID
  */
 var addAlbumDownloadButton = function() {
 
@@ -88,7 +98,7 @@ var createDownloadQuality = function() {
     var dropDown = $('<div class="c-dropdown__content"><div class="u-padding@sm"><h5 class="u-deci u-margin-bottom-none@sm">What bitrate of song you want to download?</h5></div><div class="o-message o-message--error">You must select a bitrate</div></div>');
     var dropDownList = $('<form><section class="u-scroll u-3/5-max-vh"><ul class="o-list-select"></ul></section></form>');
 
-    var bitrates = ['320', '192', '128', '64', '32', '16'];
+    var bitrates = ['320', '192', '128', '64', '32'];
 
     menuItem.find('.curr-down-rate').first().text(localStorage.download_bitrate + " kbps");
     bitrates = bitrates.map(function(rate) {

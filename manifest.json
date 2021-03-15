@@ -1,18 +1,14 @@
 {
     "name": "Jiosaavn Song Downloader",
-    "version": "0.0.4",
+    "version": "2.0.0",
     "manifest_version": 2,
-    "description": "Adds download button next to songs and over albums/playlist etc on jiosaavn.com",
+    "description": "Explore Jiosaavn without ads or download your favourite songs with this extension",
     "icons": {
-        "16": "icons/icon16.png",
-        "48": "icons/icon48.png",
-        "128": "icons/icon128.png"
+        "500": "icons/logo.png"
     },
     "default_locale": "en",
     "permissions": [
-        "https://www.jiosaavn.com/*",
-        "https://aa.cf.saavncdn.com/*",
-        "https://c.saavncdn.com/*"
+        "https://www.jiosaavn.com/*"
     ],
     "content_scripts": [{
             "matches": [

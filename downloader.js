@@ -140,6 +140,7 @@ var getSongBlob = async function(song, bit, callback) {
         callback(blob);
         console.log(`${song.song} has been downloaded...`);
         notify(`${song.song} has been downloaded...`, 'success');
+        localStorage.setItem('all_downloaded_song', (localStorage.getItem('all_downloaded_song') + ', ' + song.perma_url))
     } catch (err) {
         notify(`Sorry, That's an error !`, 'error');
     }

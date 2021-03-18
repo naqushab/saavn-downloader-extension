@@ -20,6 +20,7 @@ This extension requires JioSaavn API in the backend to fetch Download Links in r
 - Download an Album **(in progress)**
 - Download a Playlist **(in progress)**
 - JioSaavn Ad Block
+- Ask for re download previously downloaded song
 
 ## How to use it
 
